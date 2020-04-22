@@ -1,0 +1,10 @@
+<mvc:View controllerName="nav.Practice.controller.App" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	
+		<App id="app">
+		   <SplitApp id="ID_SPLITAPP">
+		   	  <masterPages></masterPages>
+		   	  <detailPages></detailPages>
+		   </SplitApp> 
+		</App>
+	
+</mvc:View>

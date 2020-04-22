@@ -1,0 +1,13 @@
+/* Enter your custom styles here */
+.Label{
+	background-color:blue;
+	color:white;
+}
+.Title{
+	background-color:blue;
+	color:white;
+}
+.sapUiBlockLayoutSizeM:not(.sapUiBlockLayoutKeepFontSize) .sapUiBlockCellContent {
+    padding: 0;
+    font-size: 0.875rem;
+}

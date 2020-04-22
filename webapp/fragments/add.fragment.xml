@@ -1,0 +1,166 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog title="Purchase Requisition" contentHeight="60%" contentWidth="50%">
+		
+
+		<l:Grid defaultSpan="L12 M12 S12" width="auto" id="idGrid">
+			<l:content>
+				<f:SimpleForm id="emp2" editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12"
+					adjustLabelSpan="false" emptySpanXL="3" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1"
+					singleContainerFullSize="false">
+					<f:content>
+						
+						<Label text="{i18n>itemnumber}">
+							<layoutData>
+							<l:GridData span="XL2 L3 M3 S3"/>
+							</layoutData>
+						</Label>	
+						<Input id="ino" placeholder="Item Number" enabled="false" value="{/Inpr}">
+							<layoutData>
+							<l:GridData span="XL2 L3 M3 S3"/>
+							</layoutData>
+							</Input>
+					<Label text="{i18n>accasscat}">
+							<layoutData>
+								<l:GridData span="XL2 L3 M3 S3"/>
+							</layoutData>
+						</Label>	
+						<Input showValueHelp="true" placeholder="Enter Accass cat" valueHelpRequest="accValueHelp" editable="true" valueHelpOnly="true" id="acc" value="{/Knttp}">
+						<layoutData>
+							<l:GridData span="XL2 L3 M3 S3"/>
+							</layoutData>
+						</Input>
+			          	<Label text="{i18n>itemcategory}">
+							<layoutData>
+								<l:GridData span="XL2 L3 M3 S3"/>
+							</layoutData>
+						</Label>
+						<Input showValueHelp="true" placeholder="Enter Item Category" valueHelpRequest="itemcValueHelp" editable="true" valueHelpOnly="true" id="item3" value="{/Pstyp}">
+							<layoutData>
+							<l:GridData span="XL2 L3 M3 S3"/>
+							</layoutData>
+						</Input>	
+						<Label text="{i18n>materialno}">
+							<layoutData>
+							<l:GridData span="XL2 L3 M3 S3"/>
+							</layoutData>
+						</Label>
+						<Input id="mateial" placeholder="Enter material no.." showValueHelp="true" showSuggestion="true" valueHelpRequest="matValueHelp" editable="true" valueHelpOnly="true" required="true" value="{/ZzmNo}">
+							<layoutData>
+							<l:GridData span="XL2 L3 M3 S3"/>
+							</layoutData>
+						</Input>
+						
+						<Label text="{i18n>shorttext}">
+								<layoutData>
+							<l:GridData span="XL2 L3 M3 S3"/>
+							</layoutData>
+						</Label>
+						<Input id="text" enabled="false" value="{/Srtxt}">
+							<layoutData>
+							<l:GridData span="XL2 L3 M3 S3"/>
+							</layoutData>
+						</Input>
+						<Label text="{i18n>quantity}">
+							<layoutData>
+							<l:GridData span="XL2 L3 M3 S3"/>
+							</layoutData>
+						</Label>
+						<Input id="qty" placeholder="Enter Quantity" type="Number" required="true" value="{/Quant}">
+								<layoutData>
+							<l:GridData span="XL2 L3 M3 S3"/>
+							</layoutData>
+						</Input>
+						<Label text="{i18n>unit}">
+								<layoutData>
+							<l:GridData span="XL2 L3 M3 S3"/>
+							</layoutData>
+						</Label>
+						<Input id="unit" enabled="false" value="{/Msehi}">
+							<layoutData>
+							<l:GridData span="XL2 L3 M3 S3"/>
+							</layoutData>
+						</Input>
+						
+					
+                       <Label text="{i18n>deliverydate}">
+							<layoutData>
+							<l:GridData span="XL2 L3 M3 S3"/>
+							</layoutData>
+						</Label>
+						<DatePicker id="DP1" placeholder="Enter Date ..." valueFormat = "dd/MM/yyyy" required="true" change="handleChange" class="sapUiSmallMarginBottom" value="{path:'/Itdd',formatter:'.formatter.formatDate'}">
+							<layoutData>
+							<l:GridData span="XL2 L3 M3 S3"/>
+							</layoutData>
+						</DatePicker>
+						<Label text="{i18n>materialgp}">
+							<layoutData>
+							<l:GridData span="XL2 L3 M3 S3"/>
+							</layoutData>
+						</Label>
+						<Input valueHelpOnly="true" enabled="false" id="gp" value="{/Matkl}">
+						<layoutData>
+							<l:GridData span="XL2 L3 M3 S3"/>
+							</layoutData>
+						</Input>
+					   <Label text="{i18n>plant}">
+							<layoutData>
+							<l:GridData span="XL2 L3 M3 S3"/>
+							</layoutData>
+						</Label>
+						<Input showValueHelp="true" placeholder="Enter Plant" valueHelpRequest="plantValueHelp" editable="true" valueHelpOnly="true" required="true" id="plant" value="{/Zzplant}">
+							<layoutData>
+							<l:GridData span="XL2 L3 M3 S3"/>
+							</layoutData>
+						</Input>
+						<Label text="{i18n>storagelocation}">
+								<layoutData>
+							<l:GridData span="XL2 L3 M3 S3"/>
+							</layoutData>
+						</Label>
+						<Input showValueHelp="true"  placeholder="Enter Storage " valueHelpRequest="storageValueHelp" editable="true" valueHelpOnly="true" id="storage" value="{/Logrt}">
+								<layoutData>
+							<l:GridData span="XL2 L3 M3 S3"/>
+							</layoutData>
+						</Input>
+						<Label text="{i18n>purchasegp}">
+								<layoutData>
+							<l:GridData span="XL2 L3 M3 S3"/>
+							</layoutData>
+						</Label>
+						<Input enabled="false" id="pg" value="{/Ekgrp}">
+							<layoutData>
+							<l:GridData span="XL2 L3 M3 S3"/>
+							</layoutData>
+						</Input>
+							<Label text="{i18n>vendor}">
+							<layoutData>
+							<l:GridData span="XL2 L3 M3 S3"/>
+							</layoutData>
+						</Label>
+						<Input showValueHelp="true" placeholder="Enter Vendor no" valueHelpRequest="vendorValueHelp" editable="true" valueHelpOnly="true" id="vendor" value="{/VendorNumber}">
+								<layoutData>
+							<l:GridData span="XL2 L3 M3 S3"/>
+							</layoutData>
+						</Input>
+						<Label text="{i18n>requisitioner}">
+							<layoutData>
+							<l:GridData span="XL2 L3 M3 S3"/>
+							</layoutData>
+						</Label>
+						<Input id="req" placeholder="Requsitioner" enabled="false"  value="{/Runr}">
+							<layoutData>
+							<l:GridData span="XL2 L3 M3 S3"/>
+							</layoutData>
+						</Input>
+						<Input id="vprice" visible="false" value=""/>
+					</f:content>
+				</f:SimpleForm>
+			</l:content>
+		</l:Grid>
+		<buttons>
+			<Button text="Enter" type="Accept" press="onEnter"/>
+
+			<Button text="Close" type="Reject" press="onExit"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

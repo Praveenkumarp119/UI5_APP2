@@ -1,0 +1,20 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+	    id="itemc1"
+		title="Item Category"
+		class="sapUiPopupWithPadding"
+		items="{/results}"
+		search="itemcValueHelpSearch"
+		confirm="itemcValueHelpClose"
+		cancel="itemcValueHelpClose">
+		<StandardListItem
+			
+			iconDensityAware="false"
+			iconInset="false"
+			title="{Pstyp}"
+			description="{Ptext}"
+		 />
+	</SelectDialog>
+</core:FragmentDefinition>

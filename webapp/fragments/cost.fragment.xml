@@ -1,0 +1,20 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+	    id="cost1"
+		title="Cost center"
+		class="sapUiPopupWithPadding"
+		items="{/results}"
+		search="costValueHelpSearch"
+		confirm="costValueHelpClose"
+		cancel="costValueHelpClose">
+		<StandardListItem
+			
+			iconDensityAware="false"
+			iconInset="false"
+			title="{Kostl}"
+		
+		 />
+	</SelectDialog>
+</core:FragmentDefinition>

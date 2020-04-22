@@ -1,0 +1,60 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+
+		
+		<TableSelectDialog 
+		id="mat1"
+			noDataText="No Material"
+		title="Select Material Number"
+		search="matValueHelpSearch"
+		confirm="matValueHelpClose"
+		cancel="matValueHelpClose"
+		items="{/results}">
+		
+		
+		<ColumnListItem>
+			<cells>
+				
+				<Text text="{ZzmNo}" />
+				<Text text="{ZzmDescription}" />
+				<Text text="{Zzunit}" />
+				<Text text="{ZzmGroup}" />
+				<Text text="{ZzpurchasingG}" />
+				<Text text="{ZzstandardPrice}" />
+
+
+				
+				
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column width="12em">
+			<Text text="Material No"/>
+			</Column>
+				<Column width="12em">
+			<Text text="Short Text"/>
+			</Column>
+			<Column width="12em">
+				<Text text="Unit"/>
+			
+			</Column>
+			<Column width="12em">
+				<Text text="Material Group"/>
+			
+			</Column>
+			<Column width="12em">
+							<Text text="Purchase Group"/>
+			</Column>
+			
+						<Column width="12em">
+							<Text text="Value Price"/>
+			</Column>
+			
+			
+		</columns>
+		
+		</TableSelectDialog>
+		
+
+</core:FragmentDefinition>

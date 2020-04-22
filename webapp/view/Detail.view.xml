@@ -1,0 +1,320 @@
+<mvc:View controllerName="nav.Practice.controller.Detail" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns:core="sap.ui.core" xmlns:u="sap.uxap"
+xmlns:l="sap.ui.layout"	xmlns:t="sap.ui.table" xmlns:f="sap.ui.layout.form" xmlns="sap.m">
+	<App id="app">
+		<pages>
+			<Page id="page" title="{i18n>materialmaster}">
+				<content>
+					<u:ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="true">
+						<u:headerTitle>
+							<u:ObjectPageHeader objectTitle="PR No:{DetailModel>/Prn}">
+								<u:actions>
+									<!--<u:ObjectPageHeaderActionButton icon="sap-icon://pull-down" text="show section" type="Emphasized" tooltip="pull-down"/>-->
+									<!--<u:ObjectPageHeaderActionButton icon="sap-icon://show" text="show state" type="Emphasized" tooltip="show"/>-->
+								</u:actions>
+								
+							</u:ObjectPageHeader>
+						</u:headerTitle>
+						<u:sections>
+							
+							
+							<u:ObjectPageSection title="my section">
+								<u:subSections>
+									<u:ObjectPageSubSection  title="Material Details" mode="Expanded">
+										<u:blocks>
+											<Table  id="mDetails"  items="{/results}">
+												
+												<columns>
+													<Column width="9em" >
+														<Label design="Bold" text="{i18n>materialno}"/>
+													</Column>
+
+													
+													<Column width="8em" minScreenWidth="Tablet"
+																demandPopin="true">
+														<Label design="Bold" text="{i18n>vendor}"/>
+													</Column>
+													
+													<Column width="5em" minScreenWidth="Tablet"
+																demandPopin="true">
+														<Label design="Bold" text="{i18n>unit}"/>
+													</Column>
+													
+													<Column width="5rem" minScreenWidth="Tablet"
+																demandPopin="true">
+														<Label design="Bold" text="{i18n>quantity}"/>
+													</Column>
+													
+													<Column width="7em" minScreenWidth="Tablet"
+																demandPopin="true">
+														<Label design="Bold" text="{i18n>materialgp}"/>
+													</Column>
+													<Column width="8rem" minScreenWidth="Tablet"
+																demandPopin="true">
+														<Label design="Bold" text="{i18n>storagelocation}"/>
+													</Column>
+													
+												
+													<!--<Column width="8rem" minScreenWidth="Tablet"-->
+													<!--			demandPopin="true">-->
+													<!--	<Label design="Bold" text="{i18n>purchasegp}"/>-->
+													<!--</Column>-->
+														<Column width="8rem" minScreenWidth="Tablet"
+																demandPopin="true">
+						                 			<Label design="Bold" text="Action"/>
+							                     	</Column>
+												
+													
+												
+												</columns>
+												<items>
+													<ColumnListItem>
+														<cells>
+													     	<ObjectIdentifier titleActive="true" titlePress="onMaterial" id="mno" title="{ZzmNo}" text="{Srtxt}"/>
+													    	<ObjectIdentifier titleActive="true" titlePress="onVendor" id="vendorn" title="{VendorNumber}"/>
+													    	<Text id="unit2" text="{Msehi}"/>
+															<Text id="qty2" text="{Quant}"/>
+															<Text id="metg" text="{Matkl}"/>
+															<Text id="storagel" text="{Logrt}"/>
+															<!--<Text id="purg" text="{Ekgrp}"/>-->
+																<l:HorizontalLayout>
+										                	<Button type="Accept" icon="sap-icon://expand" press="onExpand"/>
+									                            	</l:HorizontalLayout>
+
+														</cells>
+													</ColumnListItem>
+												</items>
+											</Table>
+										</u:blocks>
+									</u:ObjectPageSubSection>
+								</u:subSections>
+							</u:ObjectPageSection>
+								
+				
+							<u:ObjectPageSection title="my section">
+								<u:subSections>
+									<u:ObjectPageSubSection  title="Item Information" mode="Expanded">
+										<u:blocks>
+											
+					<Panel expandable="true" id="panelreport" expanded="false" headerText="Item" width="auto" class="sapUiBlockLayoutSizeM sapUiResponsiveMargin">
+							<VBox class="sapUiSmallMargin">
+								<l:BlockLayout id="BlockLayout" background="{/selectedBackground}">
+									<l:BlockLayoutRow accentCells="Accent1">
+										<l:BlockLayoutCell id="Accent1" width="2" title="">
+											
+													<f:SimpleForm id="SimpleFormDisplay" editable="false" layout="ResponsiveGridLayout" title="" labelSpanXL="4" labelSpanL="4"
+												labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="1"
+												columnsL="1" columnsM="1" singleContainerFullSize="false">
+											<f:content>
+									
+										<Label design="Bold" textAlign="" text="{i18n>itemnumber}">
+													<layoutData>
+							                 <l:GridData span="XL3 L3 M3 S3"/>
+						                    	</layoutData>
+					                     	</Label>
+											<Input id="inoo"  value="{accmodel>/Inpr}" enabled="false">
+													<layoutData>
+							                 <l:GridData span="XL3 L3 M3 S3"/>
+						                    	</layoutData>
+					                     	</Input>
+					                     	
+					      <!--               		<Label design="Bold" text="{i18n>itemcategory}">-->
+											<!--<layoutData>-->
+							    <!--             <l:GridData span="XL3 L3 M3 S3"/>-->
+						     <!--               	</layoutData>-->
+					      <!--               	</Label>-->
+					                     	
+											<!--<Text id="icat" text="{accmodel>/Pstyp}">-->
+													<!--<layoutData>-->
+							      <!--           <l:GridData span="XL3 L3 M3 S3"/>-->
+						       <!--             	</layoutData>-->
+					      <!--               	</Text>-->
+					                     	<Label design="Bold" text="{i18n>vendor}">
+											<layoutData>
+							                 <l:GridData span="XL3 L3 M3 S3"/>
+						                    	</layoutData>
+					                     	</Label>
+											<Input id="vend" enabled="false" value="{accmodel>/VendorNumber}">
+												<layoutData>
+							                 <l:GridData span="XL3 L3 M3 S3"/>
+						                    	</layoutData>
+					                     	</Input>
+					                     	
+										
+					                          <Label design="Bold" text="{i18n>plant}">
+														<layoutData>
+							                 <l:GridData span="XL3 L3 M3 S3"/>
+						                    	</layoutData>
+					                     	</Label>
+					                     	<Input id="Cost" enabled="false" value="{accmodel>/Zzplant}">
+													<layoutData>
+							                 <l:GridData span="XL3 L3 M3 S3"/>
+						                    	</layoutData>
+					                     	</Input>
+					                     	
+										
+											<Label design="Bold" text="{i18n>requisitioner}">
+														<layoutData>
+							                 <l:GridData span="XL3 L3 M3 S3"/>
+						                    	</layoutData>
+					                     	</Label>
+											<Input id="reqr" enabled="false" value="{accmodel>/Runr}">
+											<layoutData>
+							                 <l:GridData span="XL3 L3 M3 S3"/>
+						                    </layoutData>
+					                     	</Input>
+					                     	
+					                     	
+					                     		
+					                     		
+					                     		
+											<!--<Label design="Bold" text="{i18n>approver}">-->
+																<!--<layoutData>-->
+							         <!--        <l:GridData span="XL3 L3 M3 S3"/>-->
+						          <!--          	</layoutData>-->
+					      <!--               	</Label>-->
+											<!--<Text id="appr" text="{accmodel>/Apprvr}">-->
+													<!--<layoutData>-->
+							      <!--           <l:GridData span="XL3 L3 M3 S3"/>-->
+						       <!--             </layoutData>-->
+					      <!--               	</Text>-->
+					                     	
+					                     		<Label design="Bold" text="{i18n>requestdate}">
+											<layoutData>
+							                 <l:GridData span="XL3 L3 M3 S3"/>
+						                    	</layoutData>
+					                     	</Label>
+											<Input enabled="false" id="red" value="{path:'accmodel>/RDate',formatter:'.formatter.formatDate'}">
+											<layoutData>
+							                 <l:GridData span="XL3 L3 M3 S3"/>
+						                    </layoutData>
+					                     	</Input>
+					                     	
+					                     		<Label design="Bold" text="{i18n>deliverydate}">
+												<layoutData>
+							                 <l:GridData span="XL3 L3 M3 S3"/>
+						                    	</layoutData>
+					                     	</Label>
+											<Input id="dd" enabled="false" value="{path:'accmodel>/Itdd',formatter:'.formatter.formatDate'}">
+												<layoutData>
+							                 <l:GridData span="XL3 L3 M3 S3"/>
+						                    	</layoutData>
+					                     	</Input>
+					                     	
+					                	
+
+                                         
+										
+
+											<!--<Label design="Bold" text="{i18n>accasscategory}">-->
+												<!--<layoutData>-->
+							     <!--            <l:GridData span="XL3 L3 M3 S3"/>-->
+						      <!--              	</layoutData>-->
+					      <!--               	</Label>-->
+					                     	
+											<!--<Text id="accass" text="{accmodel>/Knttp}">-->
+											<!--<layoutData>-->
+							    <!--             <l:GridData span="XL3 L3 M3 S3"/>-->
+						     <!--               	</layoutData>-->
+					      <!--               	</Text>-->
+					                     	
+					                     	
+					                     		<Label design="Bold" text="{i18n>vprice}">
+														<layoutData>
+							                 <l:GridData span="XL3 L3 M3 S3"/>
+						                    	</layoutData>
+					                     	</Label>
+					                     	
+											<Input enabled="false" id="vprice" value="{accmodel>/VPrice}">
+													<layoutData>
+							                 <l:GridData span="XL3 L3 M3 S3"/>
+						                    	</layoutData>
+					                     	</Input>
+
+											<Label design="Bold" text="{i18n>totalprice}">
+													<layoutData>
+							                 <l:GridData span="XL3 L3 M3 S3"/>
+						                    	</layoutData>
+					                     	</Label>
+					                     	
+											<Input enabled="false" id="tot" value="{accmodel>/TPrice}">
+														<layoutData>
+							                 <l:GridData span="XL3 L3 M3 S3"/>
+						                    	</layoutData>
+					                     	</Input>
+					                     	
+					                     	
+					                    
+					          
+					                     		</f:content>
+											</f:SimpleForm>
+																								
+										</l:BlockLayoutCell>
+									</l:BlockLayoutRow>
+								</l:BlockLayout>
+							</VBox>
+						</Panel>
+										</u:blocks>
+									</u:ObjectPageSubSection>
+								</u:subSections>
+							</u:ObjectPageSection >
+							
+								<u:ObjectPageSection title="my section">
+									<u:subSections>
+										<u:ObjectPageSubSection title="Attachment" mode="Expanded">
+											<u:blocks>
+	                        <Table  id="attchment" inset="false" items="{/results}">
+												
+												<columns>
+													<Column width="12em" minScreenWidth="Tablet"
+																demandPopin="true"> 
+														<Label design="Bold" text="Name"/>
+													</Column>
+
+													
+													<Column width="12em" minScreenWidth="Tablet"
+																demandPopin="true">
+														<Label design="Bold" text="Type"/>
+													</Column>
+													<Column width="8rem" minScreenWidth="Tablet"
+																demandPopin="true">
+						                 			<Label design="Bold" text="Action"/>
+							                     	</Column>
+											</columns>
+														<items>
+													<ColumnListItem>
+														<cells>
+
+															<Text id="filen" text="{Filename}"/>
+															<Text id="filet" text="{Filetype}"/>
+															<l:HorizontalLayout>
+										                	<Button type="Accept" icon="sap-icon://download" press="onDownloadItem"/>
+									                            	</l:HorizontalLayout>
+														</cells>
+													</ColumnListItem>
+												</items>
+											</Table>
+															
+														
+											</u:blocks>
+										</u:ObjectPageSubSection>
+									</u:subSections>
+								</u:ObjectPageSection>
+						</u:sections>
+					</u:ObjectPageLayout>
+				</content>
+				
+				<footer>
+					<OverflowToolbar id="otbFooter">
+						<ToolbarSpacer/>
+						<Button type="Accept" text="{i18n>create}" press="onCreate" tooltip="Create">
+							<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>
+						</Button>
+						<Button type="Reject" text="{i18n>edit}" press="onEdit" tooltip="Edit">
+							<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>
+						</Button>
+					</OverflowToolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

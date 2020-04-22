@@ -1,0 +1,20 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+	    id="vendor1"
+		title="Vendor"
+		class="sapUiPopupWithPadding"
+		items="{/results}"
+		search="vendorValueHelpSearch"
+		confirm="vendorValueHelpClose"
+		cancel="vendorValueHelpClose">
+		<StandardListItem
+			
+			iconDensityAware="false"
+			iconInset="false"
+			title="{VendorNumber}"
+			description="{CompanyCode}"
+		 />
+	</SelectDialog>
+</core:FragmentDefinition>

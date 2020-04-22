@@ -1,0 +1,176 @@
+<mvc:View xmlns:core="sap.ui.core" controllerName="nav.Practice.controller.Create" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout"
+	displayBlock="true" xmlns:t="sap.ui.table" xmlns:ux="sap.uxap" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns="sap.m">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>purreq}">
+					<content>
+						<ux:ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="true">
+							<ux:sections>
+								<ux:ObjectPageSection title="my section">
+									<ux:subSections>
+										<ux:ObjectPageSubSection title="Pur Req Details" mode="Expanded">
+											<ux:blocks>
+												<VBox>
+													<Toolbar>
+														<Title text="Item Overview"/>
+														<ToolbarSpacer/>
+														<l:VerticalLayout>
+															<u:FileUploader id="fileUploader" name="myFileUpload" uploadUrl="upload/" tooltip="Upload your file to the local server"
+																uploadComplete="handleUploadComplete"/>
+														</l:VerticalLayout>
+														<Button type="Emphasized" icon="sap-icon://upload" press="onUpload"/>
+														<Button type="Accept" icon="sap-icon://download" press="onDownload"/>
+														<Button type="Accept" icon="sap-icon://add" press="onAdd" tooltip="Add"></Button>
+													</Toolbar>
+													<Table id="table1" items="{/results}">
+														<columns>
+															<Column width="5rem" minScreenWidth="Tablet" demandPopin="true">
+																<Label design="Bold" text="{i18n>materialno}"/>
+															</Column>
+															
+															<Column width="3rem" minScreenWidth="Tablet" demandPopin="true">
+																<Label design="Bold" text="{i18n>plant}"/>
+															</Column>
+															<Column width="5rem">
+																<Label design="Bold" text="{i18n>deliverydate}"/>
+															</Column>
+															<Column width="4rem" minScreenWidth="Tablet" demandPopin="true">
+																<Label design="Bold" text="{i18n>quantity}"/>
+															</Column>
+															<Column width="4rem" minScreenWidth="Tablet" demandPopin="true">
+																<Label design="Bold" text="{i18n>accasscategory}"/>
+															</Column>
+															<Column width="3rem" minScreenWidth="Tablet" demandPopin="true">
+																<Label design="Bold" text="{i18n>unit}"/>
+															</Column>
+															<Column width="5em" minScreenWidth="Tablet" demandPopin="true">
+																<Label design="Bold" text="{i18n>vendor}"/>
+															</Column>
+															<Column width="6rem" minScreenWidth="Tablet" demandPopin="true">
+																<Label design="Bold" text="Action"/>
+															</Column>
+														</columns>
+														<items>
+															<ColumnListItem>
+																<cells>
+																	<ObjectIdentifier titleActive="true" titlePress="onMaterial" id="mno" title="{ZzmNo}" text="{Srtxt}"/>
+																	<ObjectIdentifier id="plant" text="{Zzplant}"/>
+																	<Text id="d" text="{path:'Itdd',formatter:'.formatter.formatDate'}"/>
+																	<Text id="qnt" text="{Quant}"/>
+																	<Text id="acca" text="{Knttp}"/>
+																	<Text id="item" text="{Msehi}"/>
+																	<ObjectIdentifier titleActive="true" titlePress="onVendor" id="vendorn" title="{VendorNumber}"/>
+																	<l:HorizontalLayout>
+																		<Button icon="sap-icon://edit" press="onEdit" tooltip="Edit"/>
+																		<Button type="Reject" id="button2" icon="sap-icon://delete" press="onDelete"/>
+																		<Button type="Accept" icon="sap-icon://expand" press="onExpand"/>
+																	</l:HorizontalLayout>
+																</cells>
+															</ColumnListItem>
+														</items>
+													</Table>
+													<Panel expandable="true" id="panelreport" expanded="false" headerText="Item" width="auto"
+														class="sapUiBlockLayoutSizeM sapUiResponsiveMargin">
+														<VBox class="sapUiSmallMargin">
+															<l:BlockLayout id="BlockLayout" background="{/selectedBackground}">
+																<l:BlockLayoutRow accentCells="Accent1">
+																	<l:BlockLayoutCell id="Accent1" width="2" title="">
+																		<f:SimpleForm id="SimpleFormDisplay480_12120Dual" editable="false" layout="ResponsiveGridLayout" title="" labelSpanXL="4" labelSpanL="4"
+																			labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="4"
+																			columnsL="4" columnsM="4" singleContainerFullSize="false">
+																			<f:content>
+																				<core:Title text="{i18n>quantitiesordate}"/>
+																				<Label design="Bold" text="{i18n>quantity}"/>
+																				<Input id="qat" enabled="false" value="{accmodel>/Quant}"/>
+																				<Label design="Bold" text="{i18n>requestdate}"/>
+																				<Input id="rdt" enabled="false" value="{path:'accmodel>/Itdd',formatter:'.formatter.formatDate'}"/>
+																				<core:Title text="{i18n>valutioin}"/>
+																				<Label design="Bold" text="{i18n>valuationpriceorqty}"/>
+																				<Input id="vpricee" enabled="false" width="100%" value="{accmodel>/VPrice}"/>
+																				<Input id="qtyy" enabled="false" width="100%" value="{accmodel>/Quant}"/>
+																				<Label design="Bold" text="{i18n>totalprice}"/>
+																				<Input id="to" enabled="false" value="{accmodel>/TPrice}"/>
+																				<core:Title text="{i18n>accountassignment}"/>
+																				<Label design="Bold" text="{i18n>accasscategory}t"/>
+																				<Input id="accass" enabled="false" value="{accmodel>/Knttp}"/>
+																				<Label design="Bold" text="{i18n>costcentre}"/>
+																				<Input id="costc" placeholder="Enter Cost center" showValueHelp="true" valueHelpRequest="costValueHelp" editable="true" valueHelpOnly="true"
+																					value=""/>
+																				<Label design="Bold" text="{i18n>glaccout}"/>
+																				<Input id="gl" placeholder="Enter GL account" showValueHelp="true" valueHelpRequest="glaccValueHelp" value=""/>
+																				<core:Title text="{i18n>approvalorstatus}"/>
+																				<Label design="Bold" text="{i18n>approver}"/>
+																				<Input id="appr" showValueHelp="true" valueHelpRequest="approverValueHelp" editable="true" valueHelpOnly="true" placeholder="Approver Id"
+																					value=""/>
+																				<Label design="Bold" text="{i18n>prstatus}"/>
+																				<ComboBox items="" id="prsts" placeholder="PRstatus" value="{accmodel>/PrStatus}">
+																					<core:Item key="1" text="Approved"/>
+																					<core:Item key="0" text="Not Approved"/>
+																					<core:Item key="2" text="Waiting"/>
+																				</ComboBox>
+																			</f:content>
+																		</f:SimpleForm>
+																		<OverflowToolbar>
+																			<ToolbarSpacer/>
+																			<FlexBox alignItems="End" justifyContent="End">
+																				<Button type="Accept" icon="sap-icon://accept" press="onAccept" tooltip="SAVE"/>
+																			</FlexBox>
+																		</OverflowToolbar>
+																	</l:BlockLayoutCell>
+																</l:BlockLayoutRow>
+															</l:BlockLayout>
+														</VBox>
+													</Panel>
+												</VBox>
+											</ux:blocks>
+										</ux:ObjectPageSubSection>
+									</ux:subSections>
+								</ux:ObjectPageSection >
+								<ux:ObjectPageSection title="my section">
+									<ux:subSections>
+										<ux:ObjectPageSubSection title="Attachment" mode="Expanded">
+											<ux:blocks>
+												<ScrollContainer height="80%" width="100%" horizontal="true" vertical="true">
+													<UploadCollection maximumFilenameLength="55" id="UploadCollection" maximumFileSize="10" multiple="false" change="onChange"
+														uploadUrl="https://linux-gi6m:8001/sap/opu/odata/sap/ZPR_DATA_SRV/attachmentSet" fileDeleted="onFileDeleted" fileSizeExceed="onFileSizeExceed"
+														typeMissmatch="onTypeMissmatch" uploadComplete="onUploadComplete" selectionChange="onSelectionChange"
+														beforeUploadStarts="onBeforeUploadStarts" fileType="txt,jpg,pdf,doc,png"
+														items="{ path: 'itemattachmodel>/itemAttachment', templateShareable: false }" mode="MultiSelect">
+														<toolbar>
+															<OverflowToolbar id="myId">
+																<Title id="attachmentTitle"/>
+																<ToolbarSpacer/>
+																<Button id="downloadButton" text="Download" press="onDownloadItem" enabled="false" type="Transparent"/>
+																<UploadCollectionToolbarPlaceholder/>
+															</OverflowToolbar>
+														</toolbar>
+														<items>
+															<UploadCollectionItem documentId="{Refno}" fileName="{itemattachmodel>Filename}" mimeType="{MimeType}" enableEdit="false"
+																enableDelete="true" visibleDelete="true" visibleEdit="false" thumbnailUrl="{thumbnailUrl}" url="" selected="true">
+																<attributes>
+																	<ObjectAttribute title="{title}" text="{Filename}" active="false" press="onAttributePress"/>
+																</attributes>
+															</UploadCollectionItem>
+														</items>
+													</UploadCollection>
+												</ScrollContainer>
+											</ux:blocks>
+										</ux:ObjectPageSubSection>
+									</ux:subSections>
+								</ux:ObjectPageSection>
+							</ux:sections>
+						</ux:ObjectPageLayout>
+					</content>
+					<footer>
+						<OverflowToolbar>
+							<ToolbarSpacer/>
+							<Button type="Accept" text="Save" press="onSave" tooltip="SAVE"/>
+							<Button type="Reject" text="Back" press="onBack" tooltip="Back"/>
+						</OverflowToolbar>
+					</footer>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

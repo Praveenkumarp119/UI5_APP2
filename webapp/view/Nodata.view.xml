@@ -1,0 +1,20 @@
+<mvc:View controllerName="nav.Practice.controller.Master" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	<App id="app">
+		<pages>
+			<Page id="page1" title="">
+				<content>
+					<FlexBox height="100%" alignItems="Center" justifyContent="Center">
+						<Text text="No Data"/>
+					</FlexBox>
+				</content>
+				<footer>
+					<OverflowToolbar>
+						<ToolbarSpacer/>
+							<Button type="Accept" text="{i18n>create}" press="onCreate" tooltip="Create"/>
+					</OverflowToolbar>
+				</footer>
+
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

@@ -1,0 +1,173 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "nav.Practice",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		},
+		"dataSources" : {
+		    "ZPR_DATA_SRV" : {
+		    	"uri":"https://linux-gi6m:8001/sap/opu/odata/sap/ZPR_DATA_SRV",
+		    	"type": "OData",
+		    	"settings": {
+		    		"localUri": "localService/ZPR_DATA_SRV/metadata.xml"
+
+		    	}
+		    }
+		}
+	},
+
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "nav.Practice.view.App",
+			"type": "XML",
+			"async": true,
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.65.6",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "nav.Practice.i18n.i18n"
+				}
+			},
+			"":{
+				"dataSource": "ZPR_DATA_SRV",
+				"type":"sap.ui.model.odata.ODataModel",
+				"settings": {
+					"defaultBindingMode": "TwoWay"
+				}
+			},
+			
+
+			"JSON":{
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "model/Project.json"
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "nav.Practice.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false
+			},
+			"routes":  [
+				{
+				 "name":"master-target",
+				 "pattern":"",
+				 "target":
+				 	"masterTarget"
+		
+				 	
+				},
+				{
+				 "name":"detail",
+				 "pattern":"detail({cpath})",
+				 "target":
+			
+				 	["masterTarget","detailTarget"]
+				 	
+				},
+					{
+				 "name":"Nodata",
+				 "pattern":"Nodata",
+				 "target":
+			
+				 	["Nodata"]
+				 	
+				},
+				{
+					 "name":"Create",
+				 "pattern":"Create({cpath})",
+				 "target": "create"
+				 	
+				}],
+	        "targets": {
+	        	"splitViewTarget":{
+	        		"viewName" : "App"
+	        	},
+	        	
+				"masterTarget": {
+					"viewType": "XML",
+					"controlAggregation": "masterPages",
+					"controlId": "ID_SPLITAPP",
+					"parent" : "splitViewTarget",
+					"viewLevel": 1,
+					"viewId": "master",
+					"viewName": "Master"
+				},
+				"detailTarget": {
+					"viewType": "XML",
+					"controlAggregation": "detailPages",
+					"controlId": "ID_SPLITAPP",
+					"parent" : "splitViewTarget",
+					"viewLevel": 1,
+					"viewId": "detail",
+					"viewName": "Detail"
+				},
+				 "create":{
+	        	"viewType":"XML",
+	        	"viewName":"Create",
+	        	"viewLevel":1
+	        },
+	        	"Nodata": {
+					"viewType": "XML",
+					"controlAggregation": "detailPages",
+					"controlId": "ID_SPLITAPP",
+					"parent" : "splitViewTarget",
+					"viewLevel": 1,
+					"viewName": "Nodata"
+				}
+	        }
+	       
+		}
+		
+	}
+}

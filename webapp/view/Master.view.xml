@@ -1,0 +1,70 @@
+<mvc:View controllerName="nav.Practice.controller.Master" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	
+		<App id="app">
+			<pages>
+				<Page id="page1" title="">
+						<content>
+		<SearchField width="100%" liveChange="onSearch" class="sapUismaLLMargin" />
+			
+			<ScrollContainer
+				height="90%"
+				width="100%"
+				horizontal="true"
+				vertical="true"
+				focusable="true">
+				<List
+					id="ID_LIST_MASTER"
+				
+					headerText=""
+					includeItemInSelection="true"
+					
+					selectionChange="onEmpListPress"
+					
+								
+					items="{
+					path : 'MasterModel>/results',
+					sorter :{
+					path : 'FirstName'
+					}
+				}"	
+					mode="SingleSelectMaster">
+					
+						<!--<ObjectListItem-->
+						<!--	title="{MasterModel>Prn}"-->
+						<!--	description="{MasterModel>Inpr}"-->
+						<!--	text="{MasterModel>VendorNumber}"/>-->
+					<ObjectListItem
+					       icon="sap-icon://document"
+							title="PR No: {MasterModel>Prn}"
+							type="Active"
+							
+							>
+							<firstStatus>
+								<!--<ObjectStatus-->
+								<!--	text="{ContractModel>Zzagreementtype}"/>-->
+								<!--<ObjectStatus-->
+								<!--	text="{ContractModel>Zzvendornum}"/>-->
+							</firstStatus>
+							<attributes>
+								<!--<ObjectAttribute text="Item No:{MasterModel>Inpr}" />-->
+								<!--<ObjectAttribute text="Vendor No:{MasterModel>VendorNumber}" />-->
+							</attributes>
+						</ObjectListItem>
+					
+				</List>
+			</ScrollContainer>
+			   
+		</content>
+		
+			     <footer>
+					<OverflowToolbar id="otbFooter">
+						<ToolbarSpacer/>
+						<!--<OverflowToolbarButton  icon="sap-icon://add-filter" press="onFilter"/>-->
+						<OverflowToolbarButton  icon="sap-icon://sort" press="onSort"/>
+					</OverflowToolbar>
+				</footer>
+			
+				</Page>
+			</pages>
+		</App>
+</mvc:View>

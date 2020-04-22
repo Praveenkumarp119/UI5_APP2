@@ -1,0 +1,20 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+	    id="acc1"
+		title="Account assignment"
+		class="sapUiPopupWithPadding"
+		items="{/results}"
+		search="accValueHelpSearch"
+		confirm="accValueHelpClose"
+		cancel="acccValueHelpClose">
+		<StandardListItem
+			
+			iconDensityAware="false"
+			iconInset="false"
+			title="{Knttp}"
+			description="{Knttx}"
+		 />
+	</SelectDialog>
+</core:FragmentDefinition>

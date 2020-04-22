@@ -1,0 +1,50 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog title="Purchase Requisition">
+		<l:Grid defaultSpan="L12 M12 S12" width="auto" id="idGrid">
+			<l:content>
+				<f:SimpleForm id="emp" editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12"
+					adjustLabelSpan="false" emptySpanXL="3" emptySpanL="5" emptySpanM="3" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2"
+					singleContainerFullSize="false">
+					<f:content>
+						<core:Title text=""/>
+						<Label text="Status"/>
+						<Input id="s" value="{JSON>/status}"/>
+						<Label text="Item No"/>
+						<Input id="i" required="true" value=""/>
+						<Label text="Acc"/>
+						<Input showValueHelp="true" valueHelpRequest="handleValueHelp" required="true" id="ac" value=""/>
+						<Label text="Item Category"/>
+						<Input showValueHelp="true" valueHelpRequest="handleValueHelp" id="ic" value=""/>
+						<Label text="Material"/>
+						<Input id="mat" value=""/>
+						<Label text="Short Text"/>
+						<TextArea id="tt" enabled="false" value=""/>
+						<Label text="Qty"/>
+						<Input id="qt" required="true" value=""/>
+						<Label text="Unit of Measure"/>
+						<Input id="un" enabled="false" value=""/>
+						<core:Title text=""/>
+						<Label text="Delivery date"/>
+						<DatePicker id="dte" placeholder="Enter Date ..." required="true" change="handleChange" class="sapUiSmallMarginBottom"/>
+						<Label text="Material GP"/>
+						<Input showValueHelp="true" valueHelpRequest="handleValueHelp" enabled="false" id="mg" value=""/>
+						<Label text="Plant"/>
+						<Input showValueHelp="true" valueHelpRequest="handleValueHelp" required="true" id="plant" value=""/>
+						<Label text="Storage Location"/>
+						<Input showValueHelp="true" valueHelpRequest="handleValueHelp" required="true" id="storage" value=""/>
+						<Label text="PGroup"/>
+						<Input showValueHelp="true" valueHelpRequest="handleValueHelp" id="pg" value=""/>
+						<Label text="Vendor"/>
+						<Input showValueHelp="true" valueHelpRequest="handleValueHelp" required="true" id="vendor" value=""/>
+						<Label text="Requisitioner"/>
+						<Input id="req" required="true" value=""/>
+					</f:content>
+				</f:SimpleForm>
+			</l:content>
+		</l:Grid>
+		<buttons>
+			<Button text="Save" type="Accept" press="onAdd"/>
+			<Button text="Close" type="Reject" press="onClose"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,20 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+	    id="plant1"
+		title="Plant"
+		class="sapUiPopupWithPadding"
+		items="{/results}"
+		search="plantValueHelpSearch"
+		confirm="plantValueHelpClose"
+		cancel="plantValueHelpClose">
+		<StandardListItem
+			
+			iconDensityAware="false"
+			iconInset="false"
+			title="{Zzplant}"
+			description="{ZzmGroup}"
+		 />
+	</SelectDialog>
+</core:FragmentDefinition>
